@@ -168,6 +168,31 @@
   if (backdrop)   backdrop.addEventListener('click', closeModal);
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
 
+  /* ---- Hero quote form ---- */
+  var heroForm    = document.getElementById('hero-quote-form');
+  var heroSuccess = document.getElementById('hero-form-success');
+
+  if (heroForm) {
+    heroForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = heroForm.querySelector('button[type="submit"]');
+      var originalText = btn ? btn.textContent : '';
+      if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(heroForm)).toString()
+      })
+      .then(function () {
+        heroForm.style.display = 'none';
+        if (heroSuccess) heroSuccess.style.display = 'flex';
+      })
+      .catch(function () {
+        if (btn) { btn.textContent = originalText; btn.disabled = false; }
+      });
+    });
+  }
+
   /* ---- Contact form ---- */
   var contactForm = document.getElementById('contact-form');
   var formSuccess = document.getElementById('form-success');
@@ -188,11 +213,20 @@
       var btn = contactForm.querySelector('button[type="submit"]');
       var originalText = btn ? btn.textContent : '';
       if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
-      setTimeout(function () {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(contactForm)).toString()
+      })
+      .then(function () {
         if (formSuccess) { formSuccess.textContent = '✓ Thank you! We will contact you shortly to confirm your appointment.'; formSuccess.style.color = '#1a7a3c'; }
         contactForm.reset();
         if (btn) { btn.textContent = originalText; btn.disabled = false; }
-      }, 1200);
+      })
+      .catch(function () {
+        if (formSuccess) { formSuccess.textContent = 'Something went wrong. Please try again or call us directly.'; formSuccess.style.color = '#e53e3e'; }
+        if (btn) { btn.textContent = originalText; btn.disabled = false; }
+      });
     });
   }
 

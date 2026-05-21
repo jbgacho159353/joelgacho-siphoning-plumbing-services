@@ -116,7 +116,8 @@
       <div class="container" style="text-align:center;max-width:560px">
         <h2 style="color:var(--green-dark);margin-bottom:10px">Get Plumbing Tips in Your Inbox</h2>
         <p style="color:var(--text-light);margin-bottom:24px">Subscribe to our weekly newsletter for expert plumbing advice, maintenance reminders, and exclusive offers.</p>
-        <form style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap" id="blog-newsletter" novalidate>
+        <form style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap" id="blog-newsletter" data-netlify="true" name="newsletter" method="POST" novalidate>
+          <input type="hidden" name="form-name" value="newsletter" />
           <input type="email" placeholder="Your email address" required autocomplete="email" style="flex:1;min-width:220px;padding:10px 16px;border:1.5px solid var(--gray-300);border-radius:50px;font-family:var(--font-body);font-size:0.9rem"/>
           <button type="submit" class="btn btn-primary">Subscribe</button>
         </form>
@@ -140,11 +141,22 @@
     if (blogNewsletter) {
       blogNewsletter.addEventListener('submit', function(e) {
         e.preventDefault();
-        var input = this.querySelector('input');
+        var input = this.querySelector('input[type="email"]');
         var btn = this.querySelector('button');
         if (!input || !input.value.trim()) return;
+        var emailVal = input.value.trim();
+        var orig = btn ? btn.textContent : '';
         input.value = '';
-        if (btn) { var orig = btn.textContent; btn.textContent = 'Subscribed!'; btn.disabled = true; setTimeout(function(){ btn.textContent = orig; btn.disabled = false; }, 3000); }
+        if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({ 'form-name': 'newsletter', 'email': emailVal }).toString()
+        }).then(function() {
+          if (btn) { btn.textContent = 'Subscribed!'; setTimeout(function(){ btn.textContent = orig; btn.disabled = false; }, 3000); }
+        }).catch(function() {
+          if (btn) { btn.textContent = 'Subscribed!'; setTimeout(function(){ btn.textContent = orig; btn.disabled = false; }, 3000); }
+        });
       });
     }
   </script>

@@ -40,11 +40,8 @@
           <div class="hero-form-card">
             <h3>Get a Free Quote</h3>
             <p>Fill out the form and we'll respond within the hour.</p>
-            <form id="hero-quote-form" action="https://formsubmit.co/joelgacho.ffseo@gmail.com" method="POST">
-              <input type="hidden" name="_subject" value="New Booking Request - Joel Gacho Website">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_next" value="">
+            <form id="hero-quote-form" data-netlify="true" name="quote-request" method="POST">
+              <input type="hidden" name="form-name" value="quote-request" />
               <div class="hf-group">
                 <input type="text" name="name" placeholder="Your Full Name" required autocomplete="name" />
               </div>

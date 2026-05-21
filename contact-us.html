@@ -116,7 +116,8 @@
 
         <!-- Contact Form -->
         <div>
-          <form class="contact-form" id="contact-form" novalidate>
+          <form class="contact-form" id="contact-form" data-netlify="true" name="contact" method="POST" novalidate>
+            <input type="hidden" name="form-name" value="contact" />
             <h3 style="font-size:1.2rem;color:var(--green-dark);margin-bottom:20px;font-family:var(--font-heading)">Send Us a Message</h3>
 
             <div class="form-group">
