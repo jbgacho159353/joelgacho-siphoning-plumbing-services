@@ -1,0 +1,376 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Joel Gacho Siphoning & Plumbing Services clients — trusted by 27+ companies across food & beverage, construction, healthcare, education, and more across the Philippines." />
+  <title>Our Clients | Joel Gacho Siphoning &amp; Plumbing Services</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/inner.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    .client-industry-section { padding: 72px 0; }
+    .client-industry-section + .client-industry-section { padding-top: 0; }
+
+    .industry-block { margin-bottom: 48px; }
+    .industry-block:last-child { margin-bottom: 0; }
+
+    .industry-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-dark);
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 18px;
+    }
+
+    .client-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 14px;
+    }
+
+    .client-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-100);
+      border-radius: var(--radius-md);
+      padding: 20px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    }
+
+    .client-card:hover {
+      border-color: var(--green-dark);
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-2px);
+    }
+
+    .client-logo-placeholder {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      background: var(--green-dark);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+      text-align: center;
+      font-family: var(--font-heading);
+      line-height: 1.1;
+    }
+
+    .client-card-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.35;
+    }
+
+    .stat-strip {
+      background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+      padding: 48px 0;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-size: 2.5rem;
+      color: var(--white);
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .stat-item p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 36px;
+    }
+
+    .client-testimonial-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--green-dark);
+    }
+
+    .client-testimonial-card .stars {
+      color: #f5a623;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .client-testimonial-card p {
+      font-size: 0.85rem;
+      color: var(--text);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .client-testimonial-card .t-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .t-avatar {
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      background: var(--green-dark);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .t-author strong { display: block; font-size: 0.85rem; color: var(--text); }
+    .t-author span   { font-size: 0.78rem; color: var(--text-light); }
+
+    @media (max-width: 900px) {
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonial-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .client-cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div id="header-mount"></div>
+
+  <main>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span>›</span>
+          <a href="about-us.html">About Us</a><span>›</span>
+          <span>Our Clients</span>
+        </nav>
+        <h1>Our Clients</h1>
+        <p class="page-hero-sub">Trusted by 27+ companies across food &amp; beverage, construction, healthcare, education, and more — across Metro Manila and the Philippines.</p>
+      </div>
+    </section>
+
+    <!-- Stats Strip -->
+    <div class="stat-strip">
+      <div class="container">
+        <div class="stat-grid">
+          <div class="stat-item"><h3>27+</h3><p>Clients Served</p></div>
+          <div class="stat-item"><h3>6</h3><p>Regions Covered</p></div>
+          <div class="stat-item"><h3>24/7</h3><p>Emergency Support</p></div>
+          <div class="stat-item"><h3>100%</h3><p>Satisfaction Goal</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Client List by Industry -->
+    <section class="client-industry-section">
+      <div class="container">
+
+        <h2 style="color:var(--green-dark);margin-bottom:8px;text-align:center">Companies That Trust Joel Gacho</h2>
+        <p style="color:var(--text-light);text-align:center;margin-bottom:48px">Our clients span a wide range of industries, each with unique plumbing and siphoning requirements that our expert team handles with professionalism.</p>
+
+        <!-- Food & Beverage -->
+        <div class="industry-block">
+          <div class="industry-label"><span>&#127869;</span> Food &amp; Beverage</div>
+          <div class="client-cards-grid">
+            <div class="client-card"><div class="client-logo-placeholder">AFC</div><div class="client-card-name">Abuela Food Concepts Inc.</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">AMC</div><div class="client-card-name">Ale Mart Corporation</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">ARK</div><div class="client-card-name">Arko Foods Phils Inc.</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">BP</div><div class="client-card-name">Berjaya Pizza Phils Inc.</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">KJA</div><div class="client-card-name">KJA Summit Food Corporation</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">TKB</div><div class="client-card-name">Trio K Brothers Food Corporation</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">TSS</div><div class="client-card-name">Triple-S Supermart</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">DOLE</div><div class="client-card-name">Dole Philippines</div></div>
+          </div>
+        </div>
+
+        <!-- Real Estate & Construction -->
+        <div class="industry-block">
+          <div class="industry-label"><span>&#127963;</span> Real Estate &amp; Construction</div>
+          <div class="client-cards-grid">
+            <div class="client-card"><div class="client-logo-placeholder">ARC</div><div class="client-card-name">Autumn Realty Corporation</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">HMC</div><div class="client-card-name">Hilmarcs Construction Office</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">MCD</div><div class="client-card-name">Movious Construction and Development Inc.</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">PRS</div><div class="client-card-name">PRESAM Construction and General Services</div></div>
+          </div>
+        </div>
+
+        <!-- Healthcare & Education -->
+        <div class="industry-block">
+          <div class="industry-label"><span>&#127979;</span> Healthcare &amp; Education</div>
+          <div class="client-cards-grid">
+            <div class="client-card"><div class="client-logo-placeholder">CRS</div><div class="client-card-name">Catholic Relief Services</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">IHM</div><div class="client-card-name">Immaculate Heart of Mary College</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">SIS</div><div class="client-card-name">Stonyhurst Southville International School</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">RBG</div><div class="client-card-name">RBGM Medical Express Sale Inc.</div></div>
+          </div>
+        </div>
+
+        <!-- Energy & Utilities -->
+        <div class="industry-block">
+          <div class="industry-label"><span>&#9889;</span> Energy &amp; Utilities</div>
+          <div class="client-cards-grid">
+            <div class="client-card"><div class="client-logo-placeholder">AOS</div><div class="client-card-name">AO Southern Energy Corporation</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">AST</div><div class="client-card-name">Astrotel</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">PBI</div><div class="client-card-name">Philippine Batteries Inc.</div></div>
+          </div>
+        </div>
+
+        <!-- Other Industries -->
+        <div class="industry-block">
+          <div class="industry-label"><span>&#128188;</span> Other Industries</div>
+          <div class="client-cards-grid">
+            <div class="client-card"><div class="client-logo-placeholder">EEC</div><div class="client-card-name">Exito Electronic Company</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">MGM</div><div class="client-card-name">Mega Global Mfc Corporation</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">SMC</div><div class="client-card-name">Silver Meadows Corporation</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">VCI</div><div class="client-card-name">Vcentral Inc.</div></div>
+            <div class="client-card"><div class="client-logo-placeholder">WPI</div><div class="client-card-name">Whiteport Inc.</div></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="inner-section inner-section-alt">
+      <div class="container">
+        <div class="section-heading" style="text-align:center">
+          <h2>What Our Clients Say</h2>
+          <p>Feedback from clients across Metro Manila</p>
+        </div>
+        <div class="testimonial-grid">
+
+          <div class="client-testimonial-card">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Ang husay ng Joel Gacho Siphoning and Plumbing Services sa pagtulong sa aming negosyo. Hindi lang sila basta-basta nagtatrabaho, tinitiyak nila na maayos ang lahat ng plumbing services. Lubos kaming nagpapasalamat sa kanilang serbisyo!"</p>
+            <div class="t-author">
+              <div class="t-avatar">QC</div>
+              <div><strong>Client from Quezon City</strong><span>Quezon City, Metro Manila</span></div>
+            </div>
+          </div>
+
+          <div class="client-testimonial-card">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Napakagaling ng Joel Gacho! Niresolba nila ang matagal naming problema sa blocked drainage sa loob lang ng ilang oras. Propesyonal at mabilis ang kanilang trabaho. Lubos na inirerekomenda!"</p>
+            <div class="t-author">
+              <div class="t-avatar">CC</div>
+              <div><strong>Client from Caloocan City</strong><span>Caloocan City, Metro Manila</span></div>
+            </div>
+          </div>
+
+          <div class="client-testimonial-card">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Excellent service! Their team arrived on time and cleaned our septic tank thoroughly. Very professional staff and reasonable pricing. We have made Joel Gacho our regular maintenance partner."</p>
+            <div class="t-author">
+              <div class="t-avatar">PC</div>
+              <div><strong>Client from Pasig City</strong><span>Pasig City, Metro Manila</span></div>
+            </div>
+          </div>
+
+          <div class="client-testimonial-card">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Highly recommended! Quick response time and very skilled technicians. They fixed our emergency pipe burst within the hour. Transparent pricing with no hidden charges. Outstanding service!"</p>
+            <div class="t-author">
+              <div class="t-avatar">MC</div>
+              <div><strong>Client from Mandaluyong</strong><span>Mandaluyong City, Metro Manila</span></div>
+            </div>
+          </div>
+
+          <div class="client-testimonial-card">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Joel Gacho has been our trusted partner for all plumbing needs. Always professional, always on time, and always delivers excellent results. Customer satisfaction is truly at the heart of what they do."</p>
+            <div class="t-author">
+              <div class="t-avatar">TC</div>
+              <div><strong>Client from Taguig City</strong><span>Taguig City, Metro Manila</span></div>
+            </div>
+          </div>
+
+          <div class="client-testimonial-card">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"We've been working with Joel Gacho for our commercial property and they never disappoint. Their technicians are knowledgeable, their prices are fair, and their 24/7 availability gives us real peace of mind."</p>
+            <div class="t-author">
+              <div class="t-avatar">MK</div>
+              <div><strong>Commercial Client</strong><span>Makati City, Metro Manila</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Clients Stay -->
+    <section class="inner-section">
+      <div class="container content-two-col">
+        <div>
+          <h2>Why Our Clients Keep Coming Back</h2>
+          <p>Client retention is our most important metric. The majority of our business comes from repeat clients and referrals — a testament to the quality and reliability of our service.</p>
+          <ul class="values-list" style="margin-top:18px">
+            <li><span class="val-icon">&#10003;</span> Consistent quality on every single visit</li>
+            <li><span class="val-icon">&#10003;</span> Responsive and communicative team</li>
+            <li><span class="val-icon">&#10003;</span> Honest, transparent, upfront pricing</li>
+            <li><span class="val-icon">&#10003;</span> 24/7 availability for emergencies</li>
+            <li><span class="val-icon">&#10003;</span> No mess left behind after every job</li>
+            <li><span class="val-icon">&#10003;</span> Maintenance reminders and proactive advice</li>
+            <li><span class="val-icon">&#10003;</span> Eco-responsible waste disposal</li>
+          </ul>
+          <a href="contact-us.html" class="btn btn-primary" style="margin-top:24px">Book an Appointment</a>
+        </div>
+        <div class="content-img">
+          <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=640&h=480&auto=format&fit=crop&q=80" alt="Happy clients with Joel Gacho team" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="inner-cta">
+      <div class="container">
+        <h2>Become One of Our Satisfied Clients</h2>
+        <p>Join 27+ companies and hundreds of households across the Philippines who trust Joel Gacho for their plumbing and siphoning needs.</p>
+        <a href="contact-us.html" class="btn btn-lg" style="background:white;color:var(--green-dark);border-radius:50px;padding:0.9rem 2rem;font-weight:700">Book an Appointment</a>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-mount"></div>
+  <script src="js/components.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
