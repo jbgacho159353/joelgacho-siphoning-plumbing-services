@@ -168,6 +168,8 @@
   if (backdrop)   backdrop.addEventListener('click', closeModal);
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
 
+  var FORMSUBMIT_URL = 'https://formsubmit.co/ajax/joelgacho.ffseo@gmail.com';
+
   /* ---- Hero quote form ---- */
   var heroForm    = document.getElementById('hero-quote-form');
   var heroSuccess = document.getElementById('hero-form-success');
@@ -178,10 +180,13 @@
       var btn = heroForm.querySelector('button[type="submit"]');
       var originalText = btn ? btn.textContent : '';
       if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
-      fetch('/', {
+      var data = {};
+      new FormData(heroForm).forEach(function(v, k) { if (!k.startsWith('_')) data[k] = v; });
+      data['_subject'] = 'New Quote Request — Joel Gacho Plumbing';
+      fetch(FORMSUBMIT_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(heroForm)).toString()
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
       })
       .then(function () {
         heroForm.style.display = 'none';
@@ -213,10 +218,13 @@
       var btn = contactForm.querySelector('button[type="submit"]');
       var originalText = btn ? btn.textContent : '';
       if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
-      fetch('/', {
+      var data = {};
+      new FormData(contactForm).forEach(function(v, k) { if (!k.startsWith('_')) data[k] = v; });
+      data['_subject'] = 'New Appointment Request — Joel Gacho Plumbing';
+      fetch(FORMSUBMIT_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(contactForm)).toString()
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
       })
       .then(function () {
         if (formSuccess) { formSuccess.textContent = '✓ Thank you! We will contact you shortly to confirm your appointment.'; formSuccess.style.color = '#1a7a3c'; }

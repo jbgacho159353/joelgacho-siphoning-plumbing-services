@@ -40,8 +40,9 @@
           <div class="hero-form-card">
             <h3>Get a Free Quote</h3>
             <p>Fill out the form and we'll respond within the hour.</p>
-            <form id="hero-quote-form" data-netlify="true" name="quote-request" method="POST">
-              <input type="hidden" name="form-name" value="quote-request" />
+            <form id="hero-quote-form" method="POST">
+              <input type="hidden" name="_subject" value="New Quote Request — Joel Gacho Plumbing" />
+              <input type="hidden" name="_captcha" value="false" />
               <div class="hf-group">
                 <input type="text" name="name" placeholder="Your Full Name" required autocomplete="name" />
               </div>
