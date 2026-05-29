@@ -473,7 +473,9 @@ h1, h2, h3, h4, h5 {
 
 /* ---------- HERO ---------- */
 .hero-section {
-  background: linear-gradient(135deg, var(--hero-bg) 0%, var(--hero-bg2) 60%, #162b1e 100%);
+  background:
+    linear-gradient(135deg, rgba(9,21,16,0.82) 0%, rgba(15,35,24,0.75) 60%, rgba(22,43,30,0.80) 100%),
+    url('../assets/siphoning-plumbing-hero-image.png') center center / cover no-repeat;
   min-height: 100vh;
   display: flex;
   align-items: center;
